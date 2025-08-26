@@ -4,6 +4,9 @@ import RecommendedLiveCasino from "@/components/recommended-live-casino"
 import SportsSection from "@/components/sports-section"
 import GamingSection from "@/components/gaming-section"
 import Footer from "@/components/footer"
+import MobileAuthButtons from "@/components/MobileAuthButtons"
+import MobileNavSlider from "@/components/MobileNavSlider"
+import RecommendedGames from "@/components/recommended-games"
 
 export default function HomePage() {
   return (
@@ -11,15 +14,24 @@ export default function HomePage() {
       <Header />
       <main>
         <HeroSlider />
+        
+      </main>
+      
+      {/* Show MobileAuthButtons only on mobile */}
+      <div className="block md:hidden">
+        <MobileAuthButtons />
+      </div>
+       {/* MobileNavSlider only on mobile */}
+    <div className="block md:hidden">
+      <MobileNavSlider />
+    </div>
         <RecommendedLiveCasino />
         <SportsSection />
 
-        {/* Hide GamingSection on mobile, show on md+ */}
-        <div className="hidden md:block">
-          <GamingSection />
-        </div>
-      </main>
+
+   
       
+
       {/* Latest Video Section */}
       <div className="w-full bg-gray-50 py-6">
         <div className="max-w-7xl mx-auto px-4">
@@ -40,6 +52,10 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+       {/* Hide GamingSection on mobile, show on md+ */}
+        <div className="hidden md:block">
+          <GamingSection />
+        </div>
       
       <Footer />
     </div>
