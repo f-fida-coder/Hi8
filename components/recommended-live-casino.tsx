@@ -52,16 +52,16 @@ export default function RecommendedLiveCasino() {
     const clientWidth = slider.clientWidth
     let scrollPosition = 0
 
-    const scroll = () => {
-      scrollPosition += 0.5
-      if (scrollPosition >= scrollWidth - clientWidth) {
-        scrollPosition = 0
-      }
-      slider.scrollLeft = scrollPosition
+  const scroll = () => {
+    scrollPosition += 0.5
+    if (scrollPosition >= scrollWidth - clientWidth) {
+      scrollPosition = 0
     }
+    slider.scrollLeft = scrollPosition
+  }
 
-    const interval = setInterval(scroll, 50)
-    return () => clearInterval(interval)
+  const interval = setInterval(scroll, 50)
+  return () => clearInterval(interval)
   }, [])
 
   return (
