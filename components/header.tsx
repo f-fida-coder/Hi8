@@ -26,46 +26,50 @@ export default function Header() {
 
   const gameCategories = {
     casino: [
-      { name: "MT Live", image: "/games/mt-live.png" },
-      { name: "Sexy Baccarat", image: "/games/sexy-baccarat.png" },
-      { name: "On Casino", image: "/games/on-casino.png" },
-      { name: "Evolution Gaming", image: "/games/evolution.png" },
-      { name: "SA Gaming", image: "/games/sa-gaming.png" },
-      { name: "Pragmatic Play", image: "/games/pragmatic.png" },
-      { name: "Dream Gaming", image: "/games/dream-gaming.png" },
-      { name: "WE Casino", image: "/games/we-casino.png" },
-      { name: "Via Casino", image: "/games/via-casino.png" },
-      { name: "WMCasino", image: "/games/wm-casino.png" },
-      { name: "Ezugi", image: "/games/ezugi.png" },
-      { name: "Yeebet Live", image: "/games/yeebet-live.png" },
+      { name: "MT Live", image: "/casino1.png" },
+      { name: "Sexy Baccarat", image: "/casino2.png" },
+      { name: "On Casino", image: "/casino3.png" },
+      { name: "Evolution Gaming", image: "/casino4.png" },
+      { name: "SA Gaming", image: "/casino5.png" },
+      { name: "Pragmatic Play", image: "/casino6.png" },
+      { name: "Dream Gaming", image: "/casino7.png" },
+      { name: "WE Casino", image: "/casino8.png" },
+      { name: "Via Casino", image: "/casino9.png" },
+      { name: "WMCasino", image: "/casino10.png" },
+      { name: "Ezugi", image: "/casino11.png" },
+      { name: "Yeebet Live", image: "/casino12.png" },
     ],
     slots: [
-      { name: "Pragmatic Play", image: "/games/pragmatic.png" },
-      { name: "Play'n GO", image: "/games/playngo.png" },
-      { name: "NetEnt", image: "/games/netent.png" },
-      { name: "Microgaming", image: "/games/microgaming.png" },
-      { name: "Red Tiger", image: "/games/red-tiger.png" },
-      { name: "Push Gaming", image: "/games/push-gaming.png" },
-      { name: "Quickspin", image: "/games/quickspin.png" },
-      { name: "Yggdrasil", image: "/games/yggdrasil.png" },
-      { name: "Big Time Gaming", image: "/games/big-time-gaming.png" },
-      { name: "Thunderkick", image: "/games/thunderkick.png" },
-      { name: "Nolimit City", image: "/games/nolimit-city.png" },
-      { name: "Hacksaw Gaming", image: "/games/hacksaw-gaming.png" },
+      { name: "Pragmatic Play", image: "/slots1.png" },
+      { name: "Play'n GO", image: "/slots2.png" },
+      { name: "NetEnt", image: "/slots3.png" },
+      { name: "Microgaming", image: "/slots4.png" },
+      { name: "Red Tiger", image: "/slots5.png" },
+      { name: "Push Gaming", image: "/slots6.png" },
+      { name: "Quickspin", image: "/slots7.png" },
+      { name: "Yggdrasil", image: "/slots8.png" },
+      { name: "Big Time Gaming", image: "/slots9.png" },
+      { name: "Thunderkick", image: "/slots10.png" },
+      { name: "Nolimit City", image: "/slots11.png" },
+      { name: "Hacksaw Gaming", image: "/slots12.png" },
     ],
     sports: [
-      { name: "SBO Sports", image: "/games/sbo-sports.png" },
-      { name: "CMD368", image: "/games/cmd368.png" },
-      { name: "AFB88", image: "/games/afb88.png" },
-      { name: "BTI Sports", image: "/games/bti-sports.png" },
-      { name: "IM Sports", image: "/games/im-sports.png" },
-      { name: "TF Gaming", image: "/games/tf-gaming.png" },
-      { name: "UG Sports", image: "/games/ug-sports.png" },
-      { name: "FB88", image: "/games/fb88.png" },
-      { name: "M8bet", image: "/games/m8bet.png" },
-      { name: "Maxbet", image: "/games/maxbet.png" },
-      { name: "Crown Sports", image: "/games/crown-sports.png" },
-      { name: "Pinnacle", image: "/games/pinnacle.png" },
+      { name: "SBO Sports", image: "/sport2.png" },
+      { name: "CMD368", image: "/sports2.png" },
+    ],
+    fastGames: [
+      { name: "Aviator", image: "/fast1.png" },
+      { name: "Crash", image: "/fast2.png" },
+    ],
+    poker: [
+      { name: "Texas Hold'em", image: "/poker1.png" },
+    ],
+    fishing: [
+      { name: "Ocean King", image: "/fishing1.png" },
+      { name: "Fishing War", image: "/fishing2.png" },
+    ],
+    lottery: [
+      { name: "Powerball", image: "/lottery1.png" },
     ],
   }
 
@@ -268,18 +272,136 @@ export default function Header() {
             <a href="#" className="text-white hover:text-yellow-300 font-medium">
               E-Sports
             </a>
-            <a href="#" className="text-white hover:text-yellow-300 font-medium">
-              Fast Games
-            </a>
-            <a href="#" className="text-white hover:text-yellow-300 font-medium">
-              Poker
-            </a>
-            <a href="#" className="text-white hover:text-yellow-300 font-medium">
-              Fishing
-            </a>
-            <a href="#" className="text-white hover:text-yellow-300 font-medium">
-              Lottery
-            </a>
+            <div
+              className="relative"
+              onMouseEnter={() => setActiveDropdown("fastGames")}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <a href="#" className="flex items-center text-white hover:text-yellow-300 font-medium">
+                Fast Games
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </a>
+
+              {activeDropdown === "fastGames" && (
+                <div className="absolute top-full left-0 mt-1 bg-white rounded-lg shadow-xl border p-4 z-50 w-96">
+                  <div className="grid grid-cols-6 gap-3">
+                    {gameCategories.fastGames.map((game, index) => (
+                      <div
+                        key={index}
+                        className="flex flex-col items-center p-2 hover:bg-gray-50 rounded-lg cursor-pointer"
+                      >
+                        <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-gray-200 mb-1">
+                          <img
+                            src={game.image || "/placeholder.svg"}
+                            alt={game.name}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <span className="text-xs text-gray-700 text-center leading-tight">{game.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+            <div
+              className="relative"
+              onMouseEnter={() => setActiveDropdown("poker")}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <a href="#" className="flex items-center text-white hover:text-yellow-300 font-medium">
+                Poker
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </a>
+
+              {activeDropdown === "poker" && (
+                <div className="absolute top-full left-0 mt-1 bg-white rounded-lg shadow-xl border p-4 z-50 w-96">
+                  <div className="grid grid-cols-6 gap-3">
+                    {gameCategories.poker.map((game, index) => (
+                      <div
+                        key={index}
+                        className="flex flex-col items-center p-2 hover:bg-gray-50 rounded-lg cursor-pointer"
+                      >
+                        <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-gray-200 mb-1">
+                          <img
+                            src={game.image || "/placeholder.svg"}
+                            alt={game.name}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <span className="text-xs text-gray-700 text-center leading-tight">{game.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <div
+              className="relative"
+              onMouseEnter={() => setActiveDropdown("fishing")}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <a href="#" className="flex items-center text-white hover:text-yellow-300 font-medium">
+                Fishing
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </a>
+
+              {activeDropdown === "fishing" && (
+                <div className="absolute top-full left-0 mt-1 bg-white rounded-lg shadow-xl border p-4 z-50 w-96">
+                  <div className="grid grid-cols-6 gap-3">
+                    {gameCategories.fishing.map((game, index) => (
+                      <div
+                        key={index}
+                        className="flex flex-col items-center p-2 hover:bg-gray-50 rounded-lg cursor-pointer"
+                      >
+                        <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-gray-200 mb-1">
+                          <img
+                            src={game.image || "/placeholder.svg"}
+                            alt={game.name}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <span className="text-xs text-gray-700 text-center leading-tight">{game.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <div
+              className="relative"
+              onMouseEnter={() => setActiveDropdown("lottery")}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <a href="#" className="flex items-center text-white hover:text-yellow-300 font-medium">
+                Lottery
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </a>
+
+              {activeDropdown === "lottery" && (
+                <div className="absolute top-full left-0 mt-1 bg-white rounded-lg shadow-xl border p-4 z-50 w-96">
+                  <div className="grid grid-cols-6 gap-3">
+                    {gameCategories.lottery.map((game, index) => (
+                      <div
+                        key={index}
+                        className="flex flex-col items-center p-2 hover:bg-gray-50 rounded-lg cursor-pointer"
+                      >
+                        <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-gray-200 mb-1">
+                          <img
+                            src={game.image || "/placeholder.svg"}
+                            alt={game.name}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <span className="text-xs text-gray-700 text-center leading-tight">{game.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
             <a href="#" className="text-white hover:text-yellow-300 font-medium">
               Promotion
             </a>
