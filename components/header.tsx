@@ -82,9 +82,9 @@ export default function Header() {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <div className="flex items-center">
+            <Link href="/" className="flex items-center">
               <img src="/logo.png" alt="HEY8" className="h-10 w-auto" />
-            </div>
+            </Link>
 
             {/* Desktop Login Form */}
             <div className="hidden lg:flex items-center space-x-4">
