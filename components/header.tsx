@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Menu, X, Eye, EyeOff, ChevronDown } from "lucide-react"
 import { useAuth } from "@/hooks/use-auth"
+import Link from "next/link"
+
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -164,7 +166,7 @@ export default function Header() {
       <nav className="bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 shadow-md relative">
         <div className="container mx-auto px-4">
           <div className="hidden lg:flex items-center h-12 space-x-8">
-            <a href="#" className="flex items-center text-white hover:text-yellow-300 font-medium">
+            <a href="/" className="flex items-center text-white hover:text-yellow-300 font-medium">
               🏠 Home
             </a>
 
@@ -173,11 +175,11 @@ export default function Header() {
               onMouseEnter={() => setActiveDropdown("casino")}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <a href="#" className="flex items-center text-white hover:text-yellow-300 font-medium">
-                🎰 Casino
-                <span className="ml-1 bg-red-500 text-white text-xs px-1.5 py-0.5 rounded">HOT</span>
-                <ChevronDown className="ml-1 h-4 w-4" />
-              </a>
+              <Link href="/casino" className="flex items-center text-white hover:text-yellow-300 font-medium">
+  🎰 Casino
+  <span className="ml-1 bg-red-500 text-white text-xs px-1.5 py-0.5 rounded">HOT</span>
+  <ChevronDown className="ml-1 h-4 w-4" />
+</Link>
 
               {activeDropdown === "casino" && (
                 <div className="absolute top-full left-0 mt-1 bg-white rounded-lg shadow-xl border p-4 z-50 w-96">
@@ -207,11 +209,11 @@ export default function Header() {
               onMouseEnter={() => setActiveDropdown("slots")}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <a href="#" className="flex items-center text-white hover:text-yellow-300 font-medium">
+              <Link href="/slots" className="flex items-center text-white hover:text-yellow-300 font-medium">
                 🎲 Slots
                 <span className="ml-1 bg-red-500 text-white text-xs px-1.5 py-0.5 rounded">HOT</span>
                 <ChevronDown className="ml-1 h-4 w-4" />
-              </a>
+              </Link>
 
               {activeDropdown === "slots" && (
                 <div className="absolute top-full left-0 mt-1 bg-white rounded-lg shadow-xl border p-4 z-50 w-96">
@@ -464,13 +466,13 @@ export default function Header() {
                 </form>
               )}
 
-              <a href="#" className="block text-white hover:text-yellow-300 font-medium py-2">
+              <a href="/" className="block text-white hover:text-yellow-300 font-medium py-2">
                 🏠 Home
               </a>
-              <a href="#" className="block text-white hover:text-yellow-300 font-medium py-2">
+              <a href="/casino" className="block text-white hover:text-yellow-300 font-medium py-2">
                 🎰 Casino HOT
               </a>
-              <a href="#" className="block text-white hover:text-yellow-300 font-medium py-2">
+              <a href="/slots" className="block text-white hover:text-yellow-300 font-medium py-2">
                 🎲 Slots HOT
               </a>
               <a href="#" className="block text-white hover:text-yellow-300 font-medium py-2">
